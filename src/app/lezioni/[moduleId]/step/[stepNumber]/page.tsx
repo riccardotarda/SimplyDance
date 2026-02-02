@@ -14,19 +14,19 @@ export default async function StepPage({ params }: StepPageProps) {
     notFound();
   }
 
-  const module = getModuleById(moduleId);
+  const lessonModule = getModuleById(moduleId);
   const step = getStepByNumber(moduleId, stepNumber);
 
-  if (!module || !step) {
+  if (!lessonModule || !step) {
     notFound();
   }
 
   return (
     <StepPlayer
       moduleId={moduleId}
-      moduleTitle={module.title}
+      moduleTitle={lessonModule.title}
       step={step}
-      totalSteps={module.steps.length}
+      totalSteps={lessonModule.steps.length}
     />
   );
 }

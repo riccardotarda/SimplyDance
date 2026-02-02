@@ -13,7 +13,7 @@ export function getStepByNumber(
   moduleId: string,
   stepNumber: number
 ): LessonStep | null {
-  const module = getModuleById(moduleId);
-  if (!module) return null;
-  return module.steps.find((s) => s.number === stepNumber) ?? null;
+  const lessonModule = getModuleById(moduleId);
+  if (!lessonModule) return null;
+  return lessonModule.steps.find((s) => s.number === stepNumber) ?? null;
 }
