@@ -42,12 +42,11 @@ export const hipHopBasics: LessonModule = {
       type: "practice",
     },
     {
-      id: "performance",
+      id: "passo-signature",
       number: 6,
-      title: "La Performance",
-      description: "Il pezzettino di coreografia sulla musica vera. Valida ciò che hai imparato.",
-      type: "performance",
-      youtubeId: "GtCH2WyJ764",
+      title: "Passo Signature",
+      description: "Il primo passo da portare ovunque. Sbloccato per la tua libreria.",
+      type: "passo",
     },
   ],
 };

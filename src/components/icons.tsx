@@ -113,3 +113,56 @@ export function VolumeOnIcon({ className }: { className?: string }) {
     </svg>
   );
 }
+
+export function GearIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className ?? iconClass}
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      aria-hidden
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M11.983 2.25a1.5 1.5 0 011.48 1.253l.246 1.48a6.908 6.908 0 011.812.754l1.339-.734a1.5 1.5 0 012.026.549l.75 1.299a1.5 1.5 0 01-.366 1.952l-1.217.937c.086.486.086.986 0 1.472l1.217.937a1.5 1.5 0 01.366 1.952l-.75 1.299a1.5 1.5 0 01-2.026.549l-1.339-.734a6.908 6.908 0 01-1.812.754l-.246 1.48a1.5 1.5 0 01-1.48 1.253h-1.5a1.5 1.5 0 01-1.48-1.253l-.246-1.48a6.908 6.908 0 01-1.812-.754l-1.339.734a1.5 1.5 0 01-2.026-.549l-.75-1.299a1.5 1.5 0 01.366-1.952l1.217-.937a6.736 6.736 0 010-1.472l-1.217-.937a1.5 1.5 0 01-.366-1.952l.75-1.299a1.5 1.5 0 012.026-.549l1.339.734a6.908 6.908 0 011.812-.754l.246-1.48a1.5 1.5 0 011.48-1.253h1.5z"
+      />
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M12 15.25a3.25 3.25 0 100-6.5 3.25 3.25 0 000 6.5z"
+      />
+    </svg>
+  );
+}
+
+export function LockIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className ?? iconClass}
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      aria-hidden
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M7 10V8a5 5 0 1110 0v2"
+      />
+      <rect
+        x="5"
+        y="10"
+        width="14"
+        height="10"
+        rx="2"
+        ry="2"
+        strokeWidth={2}
+      />
+    </svg>
+  );
+}

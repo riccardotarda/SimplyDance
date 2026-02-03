@@ -4,6 +4,7 @@ const typeLabels: Record<LessonStep["type"], string> = {
   video: "Video",
   practice: "Pratica",
   performance: "Performance",
+  passo: "Passo",
 };
 
 const typeStyles: Record<LessonStep["type"], string> = {
@@ -12,24 +13,28 @@ const typeStyles: Record<LessonStep["type"], string> = {
     "border-vibrant-lilac/60 bg-vibrant-lilac/20 text-vibrant-lilac",
   performance:
     "border-vibrant-lilac bg-vibrant-lilac/30 text-sticker-white",
+  passo: "border-electric-yellow bg-electric-yellow/20 text-electric-yellow",
 };
 
 const behaviorHints: Record<LessonStep["type"], string> = {
   video: "Guarda per capire la teoria",
   practice: "In loop · Ripeti finché non ti senti sicuro, poi passa oltre",
   performance: "Valida ciò che hai imparato",
+  passo: "Sblocca un passo e aggiungilo alla tua libreria",
 };
 
 interface LessonStepCardProps {
   step: LessonStep;
   isLast?: boolean;
   completed?: boolean;
+  locked?: boolean;
 }
 
 export function LessonStepCard({
   step,
   isLast = false,
   completed = false,
+  locked = false,
 }: LessonStepCardProps) {
   return (
     <div className="relative flex gap-5">
@@ -46,13 +51,22 @@ export function LessonStepCard({
         {step.number}
       </div>
       <div className="flex-1 pb-10">
-        <div className="rounded-xl border-2 border-vibrant-lilac bg-zinc-900/80 p-5 transition hover:border-electric-yellow/50">
+        <div
+          className={`rounded-xl border-2 border-vibrant-lilac bg-zinc-900/80 p-5 transition ${
+            locked ? "opacity-60" : "hover:border-electric-yellow/50"
+          }`}
+        >
           <div className="mb-2 flex flex-wrap items-center gap-2">
             <span
               className={`inline-flex rounded-md border-2 px-2 py-0.5 font-montserrat text-xs font-semibold ${typeStyles[step.type]}`}
             >
               {typeLabels[step.type]}
             </span>
+            {locked && (
+              <span className="inline-flex rounded-md border-2 border-vibrant-lilac/60 bg-deep-purple/60 px-2 py-0.5 font-montserrat text-xs font-semibold text-sticker-white/60">
+                Bloccato
+              </span>
+            )}
             {completed && (
               <span className="inline-flex rounded-md border-2 border-electric-yellow bg-electric-yellow/20 px-2 py-0.5 font-montserrat text-xs font-semibold text-electric-yellow">
                 Completato
@@ -71,7 +85,9 @@ export function LessonStepCard({
             {step.description}
           </p>
           <p className="mt-2 font-montserrat text-xs text-sticker-white/60">
-            {behaviorHints[step.type]}
+            {locked
+              ? "Completa lo step precedente per sbloccarlo."
+              : behaviorHints[step.type]}
           </p>
         </div>
       </div>

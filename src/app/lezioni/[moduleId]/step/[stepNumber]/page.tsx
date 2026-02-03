@@ -1,6 +1,9 @@
 import { notFound } from "next/navigation";
 import { getModuleById, getStepByNumber } from "@/lib/modules";
 import { StepPlayer } from "@/components/StepPlayer";
+import { RequireAuth } from "@/components/RequireAuth";
+import { RequireModuleUnlock } from "@/components/RequireModuleUnlock";
+import { RequireStepUnlock } from "@/components/RequireStepUnlock";
 
 interface StepPageProps {
   params: Promise<{ moduleId: string; stepNumber: string }>;
@@ -22,11 +25,17 @@ export default async function StepPage({ params }: StepPageProps) {
   }
 
   return (
-    <StepPlayer
-      moduleId={moduleId}
-      moduleTitle={lessonModule.title}
-      step={step}
-      totalSteps={lessonModule.steps.length}
-    />
+    <RequireAuth>
+      <RequireModuleUnlock moduleId={moduleId}>
+        <RequireStepUnlock moduleId={moduleId} stepNumber={step.number}>
+          <StepPlayer
+            moduleId={moduleId}
+            moduleTitle={lessonModule.title}
+            step={step}
+            totalSteps={lessonModule.steps.length}
+          />
+        </RequireStepUnlock>
+      </RequireModuleUnlock>
+    </RequireAuth>
   );
 }

@@ -3,8 +3,9 @@
  * - video: teoria, l'utente guarda per capire
  * - practice: in loop, l'utente ripete finché non si sente sicuro poi passa oltre
  * - performance: validazione finale di ciò che ha imparato
+ * - passo: sblocca un passo da ripassare quando vuole
  */
-export type StepType = "video" | "practice" | "performance";
+export type StepType = "video" | "practice" | "performance" | "passo";
 
 export interface LessonStep {
   id: string;

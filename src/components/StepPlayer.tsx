@@ -168,6 +168,7 @@ export function StepPlayer({
         </div>
       )}
 
+
       {/* Video a tutto schermo: YouTube (IFrame API) o placeholder */}
       <div className="absolute inset-0 bg-deep-purple">
         {step.youtubeId ? (

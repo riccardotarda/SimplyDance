@@ -7,11 +7,17 @@ import { isModuleCompleted } from "@/lib/progress";
 
 interface ModuleCardProps {
   module: ModuleSummary;
+  isLocked?: boolean;
+  lockReason?: "progress" | "purchase";
 }
 
-export function ModuleCard({ module }: ModuleCardProps) {
+export function ModuleCard({
+  module,
+  isLocked = false,
+  lockReason = "progress",
+}: ModuleCardProps) {
   const [completed, setCompleted] = useState(false);
-  const isPlaceholder = module.isPlaceholder;
+  const isPlaceholder = module.isPlaceholder || isLocked;
 
   useEffect(() => {
     setCompleted(isModuleCompleted(module.id, module.stepCount));
@@ -45,7 +51,11 @@ export function ModuleCard({ module }: ModuleCardProps) {
         </div>
         {isPlaceholder && (
           <span className="rounded-md border-2 border-vibrant-lilac/50 bg-deep-purple/80 px-2.5 py-0.5 font-montserrat text-xs font-medium text-sticker-white/50">
-            Prossimamente
+            {module.isPlaceholder
+              ? "Prossimamente"
+              : lockReason === "purchase"
+              ? "Premium"
+              : "Bloccato"}
           </span>
         )}
         {!isPlaceholder && completed && (
@@ -73,6 +83,24 @@ export function ModuleCard({ module }: ModuleCardProps) {
           Apri modulo
           <span aria-hidden>→</span>
         </span>
+      )}
+      {isLocked && (
+        <div className="mt-4 space-y-2">
+          <p className="font-montserrat text-xs text-sticker-white/60">
+            {lockReason === "purchase"
+              ? "Sblocca l'accesso completo con un acquisto singolo."
+              : "Completa il modulo precedente per sbloccarlo."}
+          </p>
+          {lockReason === "purchase" && (
+            <Link
+              href="/sblocca"
+              className="inline-flex items-center gap-1.5 font-montserrat text-xs font-semibold text-electric-yellow"
+            >
+              Sblocca tutto
+              <span aria-hidden>→</span>
+            </Link>
+          )}
+        </div>
       )}
     </div>
   );
