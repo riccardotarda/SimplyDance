@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { isSupabaseConfigured, supabase } from "@/lib/supabaseClient";
 import { syncPurchaseFromSupabase } from "@/lib/purchase";
 
-export default function LoginVerifyPage() {
+function VerifyContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [email, setEmail] = useState("");
@@ -123,5 +123,21 @@ export default function LoginVerifyPage() {
         </Link>
       </div>
     </main>
+  );
+}
+
+export default function LoginVerifyPage() {
+  return (
+    <Suspense fallback={
+      <main className="min-h-screen bg-deep-purple">
+        <div className="mx-auto flex min-h-screen max-w-2xl flex-col items-center justify-center px-6 py-10 text-center">
+          <h1 className="mt-3 font-staatliches text-3xl font-bold uppercase tracking-tight text-sticker-white md:text-4xl">
+            Caricamento...
+          </h1>
+        </div>
+      </main>
+    }>
+      <VerifyContent />
+    </Suspense>
   );
 }
