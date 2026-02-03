@@ -12,9 +12,9 @@ interface ModulePageProps {
 
 export default async function ModulePage({ params }: ModulePageProps) {
   const { moduleId } = await params;
-  const lessonModule = getModuleById(moduleId);
+  const lesson = getModuleById(moduleId);
 
-  if (!lessonModule) {
+  if (!lesson) {
     notFound();
   }
 
@@ -37,9 +37,9 @@ export default async function ModulePage({ params }: ModulePageProps) {
               Percorso · Livello 1
             </p>
 
-            <ModuleHeader module={lessonModule} />
+            <ModuleHeader module={lesson} />
 
-            <StepsListWithProgress moduleId={moduleId} steps={lessonModule.steps} />
+            <StepsListWithProgress moduleId={moduleId} steps={lesson.steps} />
           </div>
 
           <div

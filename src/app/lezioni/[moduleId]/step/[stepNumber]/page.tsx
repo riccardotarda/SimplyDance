@@ -18,10 +18,10 @@ export default async function StepPage({ params }: StepPageProps) {
     notFound();
   }
 
-  const lessonModule = getModuleById(moduleId);
+  const lesson = getModuleById(moduleId);
   const step = getStepByNumber(moduleId, stepNumber);
 
-  if (!lessonModule || !step) {
+  if (!lesson || !step) {
     notFound();
   }
 
@@ -31,9 +31,9 @@ export default async function StepPage({ params }: StepPageProps) {
         <RequireStepUnlock moduleId={moduleId} stepNumber={step.number}>
           <StepPlayer
             moduleId={moduleId}
-            moduleTitle={lessonModule.title}
+            moduleTitle={lesson.title}
             step={step}
-            totalSteps={lessonModule.steps.length}
+            totalSteps={lesson.steps.length}
           />
         </RequireStepUnlock>
       </RequireModuleUnlock>

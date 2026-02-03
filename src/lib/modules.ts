@@ -13,17 +13,17 @@ const modules: Record<string, LessonModule> = {
 };
 
 export function getModuleById(moduleId: string): LessonModule | null {
-  const foundModule = modules[moduleId] ?? null;
-  return foundModule;
+  const result = modules[moduleId] ?? null;
+  return result;
 }
 
 export function getStepByNumber(
   moduleId: string,
   stepNumber: number
 ): LessonStep | null {
-  const lessonModule = getModuleById(moduleId);
-  if (!lessonModule) return null;
-  return lessonModule.steps.find((s) => s.number === stepNumber) ?? null;
+  const lesson = getModuleById(moduleId);
+  if (!lesson) return null;
+  return lesson.steps.find((s) => s.number === stepNumber) ?? null;
 }
 
 export function getAllModules(): LessonModule[] {
