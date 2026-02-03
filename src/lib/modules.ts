@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-assign-module-variable */
 import { hipHopBasics } from "@/data/hip-hop-basics";
 import { grooveStarter } from "@/data/groove-starter";
 import { bodyControl } from "@/data/body-control";

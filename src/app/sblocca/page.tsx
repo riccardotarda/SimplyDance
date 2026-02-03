@@ -27,7 +27,7 @@ export default function UnlockPage() {
       }
     };
     check();
-  }, []);
+  }, [router]);
 
   const handlePurchase = async () => {
     setErrorMessage("");
@@ -92,7 +92,8 @@ export default function UnlockPage() {
               DIVENTA UNA LEGGENDA. PER SEMPRE.
             </h1>
             <p className="mt-3 font-montserrat text-sm text-sticker-white/80 md:text-base">
-              Sblocca l'intero percorso SimplyDance. Niente abbonamenti, niente
+              Sblocca l&apos;intero percorso SimplyDance. Niente abbonamenti,
+              niente
               costi nascosti.
             </p>
 
@@ -100,7 +101,7 @@ export default function UnlockPage() {
               {[
                 "Tutti i Moduli Presenti: The Ground, Flow, Stage.",
                 "Tutte le Coreografie Future: ogni nuova canzone sara tua.",
-                "Aggiornamenti a Vita: l'app cresce, il tuo accesso resta.",
+                "Aggiornamenti a Vita: l&apos;app cresce, il tuo accesso resta.",
                 "Download Offline: balla dove vuoi (feature promessa).",
               ].map((item) => (
                 <div

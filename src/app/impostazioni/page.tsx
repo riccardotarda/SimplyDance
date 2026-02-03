@@ -15,7 +15,6 @@ type StoredOnboarding = {
 
 export default function SettingsPage() {
   const router = useRouter();
-  const [name, setName] = useState("");
   const [draftName, setDraftName] = useState("");
   const [email, setEmail] = useState("");
   const [isSaved, setIsSaved] = useState(false);
@@ -37,7 +36,6 @@ export default function SettingsPage() {
         try {
           const parsed = JSON.parse(rawAnswers) as StoredOnboarding;
           if (parsed?.name) {
-            setName(parsed.name);
             setDraftName(parsed.name);
           }
         } catch {
@@ -55,7 +53,6 @@ export default function SettingsPage() {
             .eq("id", user.id)
             .maybeSingle();
           if (data?.name) {
-            setName(data.name);
             setDraftName(data.name);
           }
           if (data?.email) {
@@ -77,7 +74,6 @@ export default function SettingsPage() {
     }
     const trimmed = draftName.trim();
     setSaveError("");
-    setName(trimmed);
     setIsSaved(true);
 
     const rawAnswers = window.localStorage.getItem("onboardingAnswers");

@@ -36,7 +36,7 @@ export async function POST(request: Request) {
 
   try {
     event = stripe.webhooks.constructEvent(body, signature, webhookSecret);
-  } catch (err) {
+  } catch {
     return NextResponse.json(
       { error: "Webhook non valido." },
       { status: 400 }

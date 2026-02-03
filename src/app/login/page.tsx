@@ -204,8 +204,8 @@ export default function LoginPage() {
           )}
 
           <p className="mt-6 font-montserrat text-xs text-sticker-white/70">
-            Ti basta l'email, niente password: ti teniamo al sicuro con un link
-            rapido (in arrivo).
+            Ti basta l&apos;email, niente password: ti teniamo al sicuro con un
+            link rapido (in arrivo).
           </p>
         </div>
       </div>

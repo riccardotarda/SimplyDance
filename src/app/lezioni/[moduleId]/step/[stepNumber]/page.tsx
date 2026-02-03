@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-assign-module-variable */
 import { notFound } from "next/navigation";
 import { getModuleById, getStepByNumber } from "@/lib/modules";
 import { StepPlayer } from "@/components/StepPlayer";
