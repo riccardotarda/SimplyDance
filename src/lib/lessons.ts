@@ -1,11 +1,10 @@
-/* eslint-disable @next/next/no-assign-module-variable */
 import { hipHopBasics } from "@/data/hip-hop-basics";
 import { grooveStarter } from "@/data/groove-starter";
 import { bodyControl } from "@/data/body-control";
 import { styleBuilder } from "@/data/style-builder";
 import type { LessonModule, LessonStep } from "@/types/lesson";
 
-const modules: Record<string, LessonModule> = {
+const lessonData: Record<string, LessonModule> = {
   "hip-hop-basics": hipHopBasics,
   "modulo-2": grooveStarter,
   "modulo-3": bodyControl,
@@ -13,7 +12,7 @@ const modules: Record<string, LessonModule> = {
 };
 
 export function getModuleById(moduleId: string): LessonModule | null {
-  const result = modules[moduleId] ?? null;
+  const result = lessonData[moduleId] ?? null;
   return result;
 }
 
@@ -27,5 +26,5 @@ export function getStepByNumber(
 }
 
 export function getAllModules(): LessonModule[] {
-  return Object.values(modules);
+  return Object.values(lessonData);
 }

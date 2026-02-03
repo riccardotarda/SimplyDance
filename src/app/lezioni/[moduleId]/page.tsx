@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getModuleById } from "@/lib/modules";
+import { getModuleById } from "@/lib/lessons";
 import { ModuleHeader } from "@/components/ModuleHeader";
 import { StepsListWithProgress } from "@/components/StepsListWithProgress";
 import { RequireAuth } from "@/components/RequireAuth";

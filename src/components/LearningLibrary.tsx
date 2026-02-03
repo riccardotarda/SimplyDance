@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { modulesList } from "@/data/modules";
-import { getAllModules } from "@/lib/modules";
+import { getAllModules } from "@/lib/lessons";
 import {
   getCompletedSteps,
   isModuleCompleted,
