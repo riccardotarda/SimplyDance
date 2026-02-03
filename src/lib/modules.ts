@@ -13,7 +13,8 @@ const modules: Record<string, LessonModule> = {
 };
 
 export function getModuleById(moduleId: string): LessonModule | null {
-  return modules[moduleId] ?? null;
+  const foundModule = modules[moduleId] ?? null;
+  return foundModule;
 }
 
 export function getStepByNumber(
